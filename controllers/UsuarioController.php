@@ -13,6 +13,10 @@ class UsuarioController {
     require_once 'views/usuario/iniciar_sesion.php';
   }
 
+  public function dar_alta() {
+    require_once 'views/usuario/alta_usuario.php';
+  }
+
   public function login() {
     $correo = $_POST["correo"];
     $password = $_POST["password"];
@@ -21,4 +25,18 @@ class UsuarioController {
 
   }
 
+  public function registro() {
+    //  si es admin : $_POST["esAdmin"]= "1" sino: -> $_POST["esAdmin"] = "0"
+    $usuario = array(
+      'dni' => $_POST['dni'],
+      'nombre' => $_POST['nombre'],
+      'apellidos' => $_POST['apellidos'],
+      'correo' => $_POST['correo'],
+      'password' => $_POST['password'],
+      'esAdmin' => (int) $_POST['esAdmin']
+    );
+    $this -> service -> guardar($usuario);
+
+    header("Location:".base_url); //Usar sesiones para mandarlo a login() y que entre con sus datos directamente
+  }
 }

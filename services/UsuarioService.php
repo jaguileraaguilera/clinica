@@ -12,4 +12,8 @@ class UsuarioService {
     public function inicia_sesion($correo, $password) {
         return $this -> repository -> inicia_sesion($correo, $password);
     }
+
+    public function guardar(array $usuario) : void {
+        $this -> repository -> guardar($usuario);
+    }
 }
