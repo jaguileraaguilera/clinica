@@ -1,19 +1,21 @@
-<h1>Registrar un nuevo médico</h1>
+<h2>Registrar un nuevo doctor</h2>
 
-<form action="<?=base_url?>?controller=Doctor&action=save" method="POST">
-    <label for="nombre">Nombre</label>
-    <input type="text" name="nombre" id = "nombre" required>
-<!-- 
-    <label for="apellidos">Apellidos</label>
-    <input type="text" name="data[apellidos]" required>
+<form action="<?=base_url?>/Doctor/dar_alta" method="POST">
+    <fieldset>
+        <legend>Introduzca los datos del nuevo doctor</legend>
+        
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id = "nombre" required>
 
-    <label for="telefono">Telefono</label>
-    <input type="text" name="data[telefono]" required>
+        <label for="apellidos">Apellidos</label>
+        <input type="text" name="data[apellidos]" required>
 
-    <label for="especialidad">Especialidad</label>
-    <input type="text" name="data[especialidad]" required>
-    
-     -->
-    <input type="submit" value="Registrar">
-    
+        <label for="telefono">Telefono</label>
+        <input type="text" name="data[telefono]" required>
+
+        <label for="especialidad">Especialidad</label>
+        <input type="text" name="data[especialidad]" required>
+        
+        <input type="submit" value="Registrar">
+    </fieldset>
 </form>

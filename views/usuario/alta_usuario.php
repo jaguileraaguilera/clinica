@@ -19,15 +19,11 @@
         <label for="password">Contraseña</label>
         <input type="password" name="password">
 
-        <!-- <label for="esAdmin">Marque si el usuario es administrador</label>
-        <input type="checkbox" name="esAdmin"> -->
-
         <label for="esAdmin">Tipo de usuario</label>
         <select id="esAdmin" name="esAdmin">
             <option value="1">Administrador</option>
             <option value="0">Paciente</option>
         </select>
-
 
         <input type="submit" value="Registrar">
     </fieldset>

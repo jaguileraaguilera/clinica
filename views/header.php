@@ -1,8 +1,13 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Clinica</title>
-        <meta charset="utf-8">
-    </head>
-    <body>
-        <h1>Bienvenido a la Clínica Dolores</h1>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Dolores</title>
+</head>
+<body>
+    <header>
+        <h1>Clínica Dolores</h1>
+    </header>
+    
