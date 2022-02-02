@@ -1,2 +1,7 @@
-<?="Usuario: ".$usuario->getCorreo() ?>
-<?="Contraseña: ".$usuario->getPassword() ?>
+<h2>Bienvenido/a <?=$usuario->getNombre()?></h2>
+
+<?php if ($usuario->getEsAdmin()== 1): ?>
+    <?php require_once('panel_administrador.php')?>
+<?php else :?>
+    <?php require_once('panel_paciente.php')?>
+<?php endif;?>

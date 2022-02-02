@@ -4,32 +4,22 @@ USE miclinica;
 
 DROP TABLE IF EXISTS usuarios;
 CREATE TABLE IF NOT EXISTS usuarios(
-correo          varchar(255) not null,
-password        varchar(255) not null,
-esAdmin         boolean not null,
-CONSTRAINT pk_usuarios PRIMARY KEY(correo)
-)ENGINE=InnoDb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
-INSERT INTO usuarios VALUES("admin@admin", "1234", 1);
-INSERT INTO usuarios VALUES("normal@normal", "1234", 0);
-
-DROP TABLE IF EXISTS pacientes;
-CREATE TABLE IF NOT EXISTS pacientes( 
 dni             varchar(9) not null, 
 nombre          varchar(64) not null,
 apellidos       varchar(64) not null,
 correo          varchar(255) not null,
 password        varchar(255) not null,
-CONSTRAINT pk_pacientes PRIMARY KEY(dni),
-CONSTRAINT uq_correo UNIQUE(correo)  
+esAdmin         boolean not null,
+CONSTRAINT pk_usuarios PRIMARY KEY(dni),
+CONSTRAINT uq_correo UNIQUE(correo)
 )ENGINE=InnoDb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-INSERT INTO pacientes VALUES("12345678P","Marta","Martos Portellano","marta@marta.es","mipass");
-INSERT INTO pacientes VALUES("87654321P","Pedro","Moreno Prieto","pedro@pedro.es","mipass");
+INSERT INTO usuarios VALUES("12345678P","Marta","Martos Portellano","marta@marta.es","1234", 1);
+INSERT INTO usuarios VALUES("87654321P","Pedro","Moreno Prieto","pedro@pedro.es","1234", 0);
 
 DROP TABLE IF EXISTS especialidades;
 CREATE TABLE IF NOT EXISTS especialidades(
-    nombre       varchar(255) not null,
+nombre       varchar(255) not null,
 CONSTRAINT pk_especialidad PRIMARY KEY(nombre)
 )ENGINE=InnoDb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -42,7 +32,7 @@ dni             varchar(9) not null,
 nombre          varchar(64) not null,
 apellidos       varchar(64) not null,
 telefono        varchar(9) not null,
-especialidad        varchar(255) not null,
+especialidad    varchar(255) not null,
 CONSTRAINT pk_doctores PRIMARY KEY(dni),
 CONSTRAINT fk_especialidad FOREIGN KEY(especialidad) REFERENCES especialidades(nombre)
 )ENGINE=InnoDb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -53,11 +43,11 @@ INSERT INTO doctores VALUES("36258147P","Ignacio","Carretero Blanco","947234576"
 DROP TABLE IF EXISTS citas;
 CREATE TABLE IF NOT EXISTS citas( 
 id              int auto_increment not null,
-paciente_dni     varchar(9) not null,
-doctor_dni       varchar(9) not null,
+paciente_dni    varchar(9) not null,
+doctor_dni      varchar(9) not null,
 fecha           date not null,
 hora            time not null,
-CONSTRAINT fk_cita_paciente FOREIGN KEY(paciente_dni) REFERENCES pacientes(dni),
+CONSTRAINT fk_cita_paciente FOREIGN KEY(paciente_dni) REFERENCES usuarios(dni),
 CONSTRAINT fk_cita_doctor FOREIGN KEY(doctor_dni) REFERENCES doctores(dni),
 CONSTRAINT pk_cita PRIMARY KEY(id)
 )ENGINE=InnoDb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
