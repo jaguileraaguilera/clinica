@@ -18,11 +18,14 @@ class UsuarioController {
   }
 
   public function login() {
-    $correo = $_POST["correo"];
-    $password = $_POST["password"];
-    $usuario = $this -> service -> inicia_sesion($correo, $password);
-    require_once 'views/usuario/sesion_iniciada.php';
+    session_start();
+    if (($_SESSION['correo'] == null) || ($_SESSION['password'] == null)) {
+      $_SESSION['correo'] = $_POST["correo"];
+      $_SESSION['password'] = $_POST["password"];
+    } ;
 
+    $usuario = $this -> service -> inicia_sesion($_SESSION['correo'], $_SESSION['password']);
+    require_once 'views/usuario/sesion_iniciada.php';
   }
 
   public function registro() {
@@ -37,6 +40,6 @@ class UsuarioController {
     );
     $this -> service -> guardar($usuario);
 
-    header("Location:".base_url); //Usar sesiones para mandarlo a login() y que entre con sus datos directamente
+    header("Location:".base_url."/Usuario/login");
   }
 }
