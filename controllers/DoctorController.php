@@ -1,21 +1,33 @@
 <?php
 namespace controllers;
-use models\Doctor;
+use services\DoctorService;
 
 class DoctorController {
-  private Doctor $doctor;
+  private DoctorService $service;
 
   function __construct() {
-    $this -> doctor = new Doctor();
+    $this -> service = new DoctorService();
   }
 
-  public function listar(): void {
-    $doctores = [];
-    $datos_todos_doctores = $this -> doctor -> extraer_todos();
-    foreach ($datos_todos_doctores as $registro) {
-      $doctores[] = Doctor::fromArray($registro);
-    }
+  public function dar_alta() {
+    require_once 'views/doctor/alta_doctor.php';
+  }
+
+  public function listar() {
+    $doctores = $this -> service -> listar();
     require_once 'views/doctor/listar.php';
   }
 
+  public function registro() {
+    $doctor = array(
+      'dni' => $_POST['dni'],
+      'nombre' => $_POST['nombre'],
+      'apellidos' => $_POST['apellidos'],
+      'telefono' => $_POST['telefono'],
+      'especialidad' => $_POST['especialidad']
+    );
+    $this -> service -> guardar($doctor);
+
+    header("Location:".base_url."/Usuario/login");
+  }
 }

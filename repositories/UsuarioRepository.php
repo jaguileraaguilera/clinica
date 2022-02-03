@@ -10,6 +10,7 @@ class UsuarioRepository {
     function __construct() {
         $this -> conexion = new BaseDatos();
     }
+    
     private function extraer_registro(): ?Usuario {
         return ($usuario = $this -> conexion -> extraer_registro()) ? 
             Usuario::fromArray($usuario) : null;
@@ -31,6 +32,6 @@ class UsuarioRepository {
                 '{$usuario['correo']}',
                 '{$usuario['password']}', 
                 '{$usuario['esAdmin']}');"
-        );
+            );
     }
 }

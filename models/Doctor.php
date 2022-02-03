@@ -1,71 +1,67 @@
 <?php 
 namespace models;
-use lib\BaseDatos;
 
 class Doctor {
-    private BaseDatos $conexion;
-    private string $dni;
-    private string $nombre;
-    private string $apellidos;
-    private string $telefono;
-    private string $especialidad;
+    function __construct(
+        private string $dni,
+        private string $nombre,
+        private string $apellidos,
+        private string $telefono,
+        private string $especialidad
+    ){}
 
-    function __construct(){
-        $this->conexion = new BaseDatos();
-    }
-
-    public function getDni(): int{
+    public function getDni(): string {
         return $this->dni;
     }
 
-    public function setDni(int $dni): void{
+    public function setDni(string $dni): self {
         $this->dni = $dni;
+        return $this;
     }
 
-    public function getNombre(): string{
+    public function getNombre(): string {
         return $this->nombre;
     }
 
-    public function setNombre(string $nombre): void{
+    public function setNombre(string $nombre): self {
         $this->nombre = $nombre;
+        return $this;
     }
 
-    public function getApellidos(): string{
+    public function getApellidos(): string {
         return $this->apellidos;
     }
 
-    public function setApellidos(string $apellidos): void{
+    public function setApellidos(string $apellidos): self {
         $this->apellidos = $apellidos;
+        return $this;
     }
-   
-    public function getTelefono(): string{
+
+    public function getTelefono(): string {
         return $this->telefono;
     }
 
-    public function setTelefono(string $telefono): void{
+    public function setTelefono(string $telefono): self {
         $this->telefono = $telefono;
+        return $this;
     }
-       
-    public function getEspecialidad(): string{
+
+    public function getEspecialidad(): string {
         return $this->especialidad;
     }
 
-    public function extraer_todos(): ?array {
-        $this-> conexion -> consulta("SELECT * FROM pacientes");
-        return $this -> conexion -> extraer_todos();
+    public function setEspecialidad(string $especialidad): self {
+        $this->especialidad = $especialidad;
+        return $this;
     }
 
     public static function fromArray(array $data): Doctor {
-        /* Este método nos permite hacer la correspondencia o mapeo de cada
-         * array de un registro obtenido de la consulta de la base de datos
-         * a un objeto Doctor */
-
         return new Doctor(
             $data['dni'],
             $data['nombre'],
             $data['apellidos'],
             $data['telefono'],
-            $data['especialidad'],
+            $data['especialidad']
         );
     }
 }

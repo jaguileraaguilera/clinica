@@ -9,8 +9,7 @@ class Usuario {
         private string $correo,
         private string $password,
         private bool $esAdmin
-    )
-    {}
+    ){}
     
     public function getDni() {
         return $this->dni;
