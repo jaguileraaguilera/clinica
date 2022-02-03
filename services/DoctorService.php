@@ -16,4 +16,8 @@ class DoctorService {
     public function listar() {
         return $this -> repository -> listar();
     }
+
+    public function borrar(string $dni_doctor): void {
+        $this -> repository -> borrar($dni_doctor);
+    }
 }

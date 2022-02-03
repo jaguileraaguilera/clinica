@@ -1,6 +1,6 @@
 <h2>Registrar un nuevo doctor</h2>
 
-<form action="<?=base_url?>/Doctor/registro" method="POST">
+<form action="<?=base_url?>/Doctor/registrar" method="POST">
     <fieldset>
         <legend>Introduzca los datos del nuevo doctor</legend>
 

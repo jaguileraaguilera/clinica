@@ -27,6 +27,16 @@ class DoctorRepository {
         return $this -> extraer_todos();
     }
 
+    public function borrar($dni_doctor) {
+        // Primero borramos todas sus citas, para que no chille la BD
+        $this -> conexion -> consulta(
+            "DELETE FROM citas WHERE doctor_dni='{$dni_doctor}';"
+        );
+        $this -> conexion -> consulta(
+            "DELETE FROM doctores WHERE dni='{$dni_doctor}';"
+        );
+    }
+
     public function extraer_todos() {
         $doctores = array();
         $doctoresData = $this -> conexion -> extraer_todos();

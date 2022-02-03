@@ -9,16 +9,13 @@ class DoctorController {
     $this -> service = new DoctorService();
   }
 
-  public function dar_alta() {
-    require_once 'views/doctor/alta_doctor.php';
-  }
-
+  // Gestión de modelos
   public function listar() {
     $doctores = $this -> service -> listar();
     require_once 'views/doctor/listar.php';
   }
 
-  public function registro() {
+  public function registrar() {
     $doctor = array(
       'dni' => $_POST['dni'],
       'nombre' => $_POST['nombre'],
@@ -30,4 +27,22 @@ class DoctorController {
 
     header("Location:".base_url."/Usuario/login");
   }
+
+  public function borrar() {
+    $dni_doctor = $_POST['dni'];
+    $this -> service -> borrar($dni_doctor);
+
+    header("Location:".base_url."/Doctor/ver_opciones_borrado");
+  }
+
+  // Gestión de vistas
+  public function ver_opciones_borrado() {
+    require_once 'views/doctor/borrar.php';
+    $this -> listar();
+  }
+
+  public function ver_formulario_alta() {
+    require_once 'views/doctor/alta_doctor.php';
+  }
+
 }
