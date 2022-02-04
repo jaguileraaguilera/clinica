@@ -1,5 +1,5 @@
 <nav>
     <ul>
-        <li><a href="<?=base_url?>/Usuario/login">Volver a inicio</a></li>
+        <li><a href="<?=base_url?>/Usuario/login">Inicio</a></li>
     </ul>
 </nav>

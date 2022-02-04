@@ -59,8 +59,8 @@ class DoctorController {
   // Gestión de vistas
   public function ver_opciones_borrado() {
     require_once 'views/volver_inicio.php';
+    $doctores = $this -> listar();
     require_once 'views/doctor/borrar.php';
-    $this -> listar();
   }
 
   public function ver_formulario_alta() {
