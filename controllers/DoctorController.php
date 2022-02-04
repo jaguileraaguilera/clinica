@@ -10,9 +10,16 @@ class DoctorController {
   }
 
   // Gestión de modelos
+  public function datos_doctor() {
+    $dni_doctor = $_POST['dni'];
+    $this -> service -> datos_doctor($dni_doctor);
+  }
+
   public function listar() {
     $doctores = $this -> service -> listar();
+    require_once 'views/volver_inicio.php';
     require_once 'views/doctor/listar.php';
+    return $doctores;
   }
 
   public function registrar() {
@@ -25,7 +32,7 @@ class DoctorController {
     );
     $this -> service -> guardar($doctor);
 
-    header("Location:".base_url."/Usuario/login");
+    header("Location:".base_url."/Doctor/listar");
   }
 
   public function borrar() {
@@ -35,14 +42,50 @@ class DoctorController {
     header("Location:".base_url."/Doctor/ver_opciones_borrado");
   }
 
+  public function modificar() {
+    $atributos = array('dni', 'nombre', 'apellidos', 'telefono', 'especialidad');
+    $opciones = array();
+
+    foreach ($atributos as $atributo) {
+      if (isset($_POST[$atributo])) {
+        $opciones[$atributo] = $_POST[$atributo];
+      }
+    }
+
+    $this -> service -> modificar($opciones); // ESTAMOS AQUÍ, TENEMOS QUE IMPLEMENTAR EL ALTER TABLE
+    header("Location:".base_url."/Doctor/listar");
+  }
+
   // Gestión de vistas
   public function ver_opciones_borrado() {
+    require_once 'views/volver_inicio.php';
     require_once 'views/doctor/borrar.php';
     $this -> listar();
   }
 
   public function ver_formulario_alta() {
-    require_once 'views/doctor/alta_doctor.php';
+    require_once 'views/volver_inicio.php';
+    require_once 'views/doctor/alta.php';
   }
 
+  public function ver_opciones_modificar() {
+    $doctores = $this -> listar();
+    require_once 'views/volver_inicio.php';
+    require_once 'views/doctor/elegir_doctor_campos_modificar.php';
+    
+  }
+
+  public function ver_formulario_modificar() {
+    $dni = $_POST['dni'];
+    $opciones = array('nombre', 'apellidos', 'telefono', 'especialidad');
+
+    foreach ($opciones as $opcion) {
+      if (isset($_POST[$opcion])) {
+        $opciones_procesar[] = $_POST[$opcion];
+      }
+    }
+    require_once 'views/volver_inicio.php';
+    require_once 'views/doctor/modificar.php';
+    
+  }
 }

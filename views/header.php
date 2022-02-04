@@ -10,4 +10,5 @@
 <body>
     <header>
         <h1>Clínica Dolores</h1>
+    </header>
     

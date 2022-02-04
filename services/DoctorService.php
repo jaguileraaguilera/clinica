@@ -20,4 +20,12 @@ class DoctorService {
     public function borrar(string $dni_doctor): void {
         $this -> repository -> borrar($dni_doctor);
     }
+
+    public function modificar(array $opciones): void {
+        $this -> repository -> modificar($opciones);
+    }
+
+    public function datos_doctor($dni_doctor) {
+        return $this -> repository -> datos_doctor($dni_doctor);
+    }
 }

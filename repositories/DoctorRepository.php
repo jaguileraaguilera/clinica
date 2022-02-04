@@ -18,8 +18,9 @@ class DoctorRepository {
                 '{$doctor['nombre']}', 
                 '{$doctor['apellidos']}',
                 '{$doctor['telefono']}',
-                '{$doctor['especialidad']}');"
-            );
+                '{$doctor['especialidad']}');
+            "
+        );
     }
 
     public function listar() {
@@ -37,6 +38,30 @@ class DoctorRepository {
         );
     }
 
+    public function modificar($opciones) {
+        $dni = $opciones['dni'];
+
+        for ($i = 1; $i < count($opciones); $i++) {
+            foreach ($opciones as $campo => $valor) {
+                if ($campo != 'dni') {
+                    $this -> conexion -> consulta(
+                        "UPDATE doctores 
+                        SET {$campo}='{$valor}' 
+                        WHERE dni='{$dni}';"
+                    );
+                }
+            }
+        }
+    }
+
+    public function datos_doctor($dni_doctor) {
+        $this -> conexion -> consulta(
+            "SELECT * FROM doctores WHERE dni='{$dni_doctor}';"
+        );
+
+        return $this -> extraer_registro();
+    }
+
     public function extraer_todos() {
         $doctores = array();
         $doctoresData = $this -> conexion -> extraer_todos();
@@ -46,5 +71,10 @@ class DoctorRepository {
         }
 
         return $doctores;
+    }
+
+    private function extraer_registro(): ?Doctor {
+        return ($doctor = $this -> conexion -> extraer_registro()) ?
+            Doctor::fromArray($doctor) : null;
     }
 }

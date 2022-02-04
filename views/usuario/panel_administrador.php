@@ -1,4 +1,3 @@
-</header>
 <section>
     <h1>Panel de usuario administrador</h1>
 
@@ -7,7 +6,7 @@
         <ul>
             <li><a href="<?=base_url."/Doctor/listar"?>">Ver todos</a></li>
             <li><a href="<?=base_url."/Doctor/ver_formulario_alta" ?>">Registrar un nuevo doctor</a></li>
-            <li><a href="<?=base_url."/Doctor/ver_formulario_modificacion" ?>">Modificar los datos de un doctor</a></li>
+            <li><a href="<?=base_url."/Doctor/ver_opciones_modificar" ?>">Modificar los datos de un doctor</a></li>
             <li><a href="<?=base_url."/Doctor/ver_opciones_borrado" ?>">Borrar</a></li>
         </ul>
     </nav>
@@ -27,4 +26,3 @@
         </ul>
     </nav>
 </section>
-

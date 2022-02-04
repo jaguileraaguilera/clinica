@@ -1,6 +1,5 @@
-<h2>Iniciar sesión</h2>
-</header>
 <main>
+<h2>Iniciar sesión</h2>
     <form action="<?=base_url?>/Usuario/login" method="POST">
         <fieldset>
             <legend>Introduzca sus credenciales</legend>
