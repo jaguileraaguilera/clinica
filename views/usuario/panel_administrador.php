@@ -33,7 +33,7 @@
     <h2>Especialidades</h2>
     <nav>
         <ul>
-            <li><a href="#">Ver todas</a></li>
+            <li><a href="<?=base_url."/Especialidad/listar"?>">Ver todas</a></li>
             <li><a href="#">Registrar una nueva especialidad</a></li>
             <li><a href="#">Modificar los datos de una especialidad</a></li>
             <li><a href="#">Borrar</a></li>

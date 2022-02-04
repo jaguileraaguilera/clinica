@@ -28,6 +28,4 @@ class CitaController {
     $citas = $this -> listar();
     require_once 'views/citas/borrar.php';
   }
-
-  
 }
