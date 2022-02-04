@@ -23,6 +23,11 @@ class UsuarioRepository {
         return $this -> extraer_registro();
     }
 
+    public function listar() {
+        $this -> conexion -> consulta("SELECT * FROM usuarios;");
+        return $this -> extraer_todos();
+    }
+
     public function guardar($usuario) {
         $this -> conexion -> consulta(
             "INSERT INTO usuarios VALUES(
@@ -31,7 +36,19 @@ class UsuarioRepository {
                 '{$usuario['apellidos']}',
                 '{$usuario['correo']}',
                 '{$usuario['password']}', 
-                '{$usuario['esAdmin']}');"
-            );
+                '{$usuario['esAdmin']}');
+            "
+        );
+    }
+
+    public function extraer_todos() {
+        $usuarios = array();
+        $usuariosData = $this -> conexion -> extraer_todos();
+
+        foreach ($usuariosData as $usuarioData) {
+            array_push($usuarios, Usuario::fromArray($usuarioData));
+        }
+
+        return $usuarios;
     }
 }

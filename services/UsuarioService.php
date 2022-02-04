@@ -16,4 +16,8 @@ class UsuarioService {
     public function guardar(array $usuario) : void {
         $this -> repository -> guardar($usuario);
     }
+
+    public function listar() {
+        return $this -> repository -> listar();
+    }
 }

@@ -14,15 +14,29 @@
     <h2>Usuarios / Pacientes</h2>
     <nav>
         <ul>
+            <li><a href="<?=base_url."/Usuario/listar"?>">Ver todos</a></li>
             <li><a href="<?=base_url."/Usuario/dar_alta" ?>">Registrar un nuevo usuario</a></li>
-            <li><a href="<?=base_url."/Paciente/mostrarTodos"?>">Mostrar todos los pacientes</a></li>
+            <li><a href="#">Modificar los datos de un usuario</a></li>
+            <li><a href="#">Borrar</a></li>
         </ul>
     </nav>
 
     <h2>Citas</h2>
     <nav>
         <ul>
-            
+            <li><a href="#">Ver todas</a></li>
+            <li><a href="#">Crear cita</a></li>
+            <li><a href="#">Borrar</a></li>
+        </ul>
+    </nav>
+
+    <h2>Especialidades</h2>
+    <nav>
+        <ul>
+            <li><a href="#">Ver todas</a></li>
+            <li><a href="#">Registrar una nueva especialidad</a></li>
+            <li><a href="#">Modificar los datos de una especialidad</a></li>
+            <li><a href="#">Borrar</a></li>
         </ul>
     </nav>
 </section>

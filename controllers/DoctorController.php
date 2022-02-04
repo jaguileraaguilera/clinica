@@ -52,7 +52,7 @@ class DoctorController {
       }
     }
 
-    $this -> service -> modificar($opciones); // ESTAMOS AQUÍ, TENEMOS QUE IMPLEMENTAR EL ALTER TABLE
+    $this -> service -> modificar($opciones);
     header("Location:".base_url."/Doctor/listar");
   }
 
@@ -72,7 +72,6 @@ class DoctorController {
     $doctores = $this -> listar();
     require_once 'views/volver_inicio.php';
     require_once 'views/doctor/elegir_doctor_campos_modificar.php';
-    
   }
 
   public function ver_formulario_modificar() {
@@ -84,8 +83,8 @@ class DoctorController {
         $opciones_procesar[] = $_POST[$opcion];
       }
     }
+
     require_once 'views/volver_inicio.php';
     require_once 'views/doctor/modificar.php';
-    
   }
 }

@@ -17,6 +17,13 @@ class UsuarioController {
     require_once 'views/usuario/alta_usuario.php';
   }
 
+  public function listar() {
+    $usuarios = $this -> service -> listar();
+    require_once 'views/volver_inicio.php';
+    require_once 'views/usuario/listar.php';
+    return $usuarios;
+  }
+
   public function login() {
     session_start();
     if (!isset($_SESSION['correo']) || (!isset($_SESSION['password']))) {
@@ -37,7 +44,7 @@ class UsuarioController {
   }
 
   public function registro() {
-    //  si es admin : $_POST["esAdmin"]= "1" sino: -> $_POST["esAdmin"] = "0"
+    //  si es admin : $_POST["esAdmin"]= "1" sino: -> $_POST["esAdmin"] = "0" lo pasamos a entero
     $usuario = array(
       'dni' => $_POST['dni'],
       'nombre' => $_POST['nombre'],
