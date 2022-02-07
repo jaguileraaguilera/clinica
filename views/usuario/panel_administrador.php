@@ -17,7 +17,7 @@
             <li><a href="<?=base_url."/Usuario/listar" ?>">Ver todos</a></li>
             <li><a href="<?=base_url."/Usuario/dar_alta" ?>">Registrar un nuevo usuario</a></li>
             <li><a href="<?=base_url."/Usuario/ver_opciones_modificar" ?>">Modificar los datos de un usuario</a></li>
-            <li><a href="#">Borrar</a></li>
+            <li><a href="<?=base_url."/Usuario/ver_opciones_borrado" ?>">Borrar</a></li>
         </ul>
     </nav>
 

@@ -68,6 +68,14 @@ class UsuarioController {
     header("Location:".base_url."/Usuario/login");
   }
 
+  public function borrar() {
+    $dni_usuario = $_POST['dni'];
+    $this -> service -> borrar($dni_usuario);
+
+    header("Location:".base_url."/Usuario/ver_opciones_borrado");
+  }
+
+
   public function consultar_datos() {
     if (session_status() != 2) { //Si la sesión no está iniciada
       session_start();  
@@ -75,6 +83,12 @@ class UsuarioController {
 
     $usuario = $this -> datos_usuario();
     require_once 'views/usuario/consultar_datos.php';
+  }
+
+  public function ver_opciones_borrado() {
+    require_once 'views/volver_inicio.php';
+    $usuarios = $this -> listar();
+    require_once 'views/Usuario/borrar.php';
   }
 
   public function ver_opciones_modificar() {

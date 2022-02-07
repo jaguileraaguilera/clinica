@@ -14,7 +14,7 @@
     <nav>
         <ul>
             <li><a href="<?=base_url."/Usuario/consultar_datos"?>">Consultar mis datos</a></li>
-            <li><a href="#">Modificar mis datos</a></li>
+            <li><a href="<?=base_url."/Usuario/ver_formulario_elegir_datos_modificar"?>">Modificar mis datos</a></li>
         </ul>
     </nav>
 </section>

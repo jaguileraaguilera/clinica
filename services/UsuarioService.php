@@ -21,6 +21,10 @@ class UsuarioService {
         return $this -> repository -> listar();
     }
 
+    public function borrar(string $dni_usuario): void {
+        $this -> repository -> borrar($dni_usuario);
+    }
+
     public function datos_usuario($correo_usuario) {
         return $this -> repository -> datos_usuario($correo_usuario);
     }
