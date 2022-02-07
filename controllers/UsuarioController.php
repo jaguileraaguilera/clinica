@@ -76,34 +76,14 @@ class UsuarioController {
     header("Location:".base_url."/Usuario/ver_opciones_borrado");
   }
 
-
   public function consultar_datos() {
     if (session_status() != 2) { //Si la sesión no está iniciada
       session_start();  
     }
-
-    $usuario = $this -> datos_usuario();
-    require_once 'views/usuario/consultar_datos.php';
-  }
-
-  public function consultar_citas() {
-    if (session_status() != 2) { //Si la sesión no está iniciada
-      session_start();  
-    }
-
-    $usuario = $this -> datos_usuario();
-    $cita = new CitaController();
-    $todas_citas = $cita -> extraer_todas();
-    $citas = array();
-
-    foreach ($todas_citas as $cita) {
-      if ($cita->getPacienteDni() == $usuario->getDni()) {
-        $citas[] = $cita;
-      }
-    }
     
     require_once 'views/volver_inicio.php';
-    require_once 'views/citas/listar.php';
+    $usuario = $this -> datos_usuario();
+    require_once 'views/usuario/consultar_datos.php';
   }
 
   public function ver_opciones_borrado() {
@@ -130,7 +110,6 @@ class UsuarioController {
 
     require_once 'views/volver_inicio.php';
     $this -> consultar_datos();
-  
     require_once 'views/usuario/modificar.php';
   }
 

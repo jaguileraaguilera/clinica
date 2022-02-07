@@ -5,8 +5,8 @@
     <nav>
         <ul>
             <li><a href="#">Pedir cita</a></li>
-            <li><a href="<?=base_url."/Usuario/consultar_citas"?>">Consultar mis citas</a></li>
-            <li><a href="#">Anular citas</a></li>
+            <li><a href="<?=base_url."/Cita/consultar_citas" ?>">Consultar mis citas</a></li>
+            <li><a href="<?=base_url."/Cita/anular_citas" ?>">Anular citas</a></li>
         </ul>
     </nav>
 
