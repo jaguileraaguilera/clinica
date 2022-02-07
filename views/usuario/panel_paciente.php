@@ -13,7 +13,7 @@
     <h2>Mis datos</h2>
     <nav>
         <ul>
-            <li><a href="#">Consultar mis datos</a></li>
+            <li><a href="<?=base_url."/Usuario/consultar_datos"?>">Consultar mis datos</a></li>
             <li><a href="#">Modificar mis datos</a></li>
         </ul>
     </nav>

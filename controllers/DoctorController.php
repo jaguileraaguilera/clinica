@@ -90,7 +90,6 @@ class DoctorController {
       $especialidades = $especialidad-> extraer_todas();
     }
 
-    // var_dump($opciones_procesar);
     require_once 'views/volver_inicio.php';
     require_once 'views/doctor/modificar.php';
   }

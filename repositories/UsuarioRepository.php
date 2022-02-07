@@ -51,4 +51,12 @@ class UsuarioRepository {
 
         return $usuarios;
     }
+
+    public function datos_usuario($correo_usuario) {
+        $this -> conexion -> consulta(
+            "SELECT * FROM usuarios WHERE correo='{$correo_usuario}';"
+        );
+
+        return $this -> extraer_registro();
+    }
 }

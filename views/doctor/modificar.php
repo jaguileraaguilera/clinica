@@ -8,9 +8,9 @@
             <label for="dni">DNI</label>
             <input type="text" name="dni" id="dni" value="<?=$dni?>" readonly>
 
-            <?php foreach($opciones_procesar as $campo):?>
+            <?php foreach($opciones_procesar as $campo): ?>
 
-                <?php if($campo == 'especialidad'):?> <!--La especialidad aparece como desplegable en vez de caja de texto-->
+                <?php if($campo == 'especialidad'): ?> <!--La especialidad aparece como desplegable en vez de caja de texto-->
 
                     <label for="<?=$campo?>">Nueva <?=$campo?></label>
                     <select id="<?=$campo?>" name="<?=$campo?>">
@@ -20,7 +20,7 @@
                     </select>
 
                 <?php else: ?>
-                    
+
                     <label for="<?=$campo?>">Nuevo/s <?=$campo?></label>
                     <input type="text" name="<?=$campo?>" id="<?=$campo?>">
 

@@ -17,6 +17,11 @@ class UsuarioController {
     require_once 'views/usuario/alta_usuario.php';
   }
 
+  public function datos_usuario() {
+    $correo_usuario = $_SESSION['correo'];
+    return $this -> service -> datos_usuario($correo_usuario);
+  }
+
   public function listar() {
     $usuarios = $this -> service -> listar();
     require_once 'views/volver_inicio.php';
@@ -63,6 +68,12 @@ class UsuarioController {
     header("Location:".base_url."/Usuario/login");
   }
 
+  public function consultar_datos() {
+    session_start();
+    $usuario = $this -> datos_usuario();
+    require_once 'views/usuario/consultar_datos.php';
+  }
+
   public function ver_opciones_modificar() {
     $usuarios = $this -> listar();
     require_once 'views/volver_inicio.php';
@@ -78,7 +89,7 @@ class UsuarioController {
         $opciones_procesar[] = $_POST[$opcion];
       }
     }
-
+    
     require_once 'views/volver_inicio.php';
     require_once 'views/usuario/modificar.php';
   }

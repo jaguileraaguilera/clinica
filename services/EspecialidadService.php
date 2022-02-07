@@ -16,5 +16,4 @@ class EspecialidadService {
     public function borrar(string $nombre_especialidad): void {
         $this -> repository -> borrar($nombre_especialidad);
     }
-
 }
