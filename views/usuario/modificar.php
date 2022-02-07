@@ -1,7 +1,7 @@
 <section>
-    <h2>Modificar doctor</h2>
+    <h2>Modificar usuario</h2>
 
-    <form action="<?=base_url?>/Doctor/modificar" method="POST">
+    <form action="<?=base_url?>/Usuario/modificar" method="POST">
         <fieldset>
             <legend>Rescriba los nuevos valores a guardar (DNI está deshabilitado)</legend>
 
@@ -10,7 +10,7 @@
 
 
             <?php foreach($opciones_procesar as $campo):?>
-                <label for="<?=$campo?>">Nuevo/a/s <?=$campo?></label>
+                <label for="<?=$campo?>">Nuevo/s <?=$campo?></label>
                 <input type="text" name="<?=$campo?>" id="<?=$campo?>">
             <?php endforeach; ?>
             

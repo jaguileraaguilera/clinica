@@ -16,6 +16,19 @@ class EspecialidadRepository {
         return $this -> extraer_todos();
     }
 
+    public function borrar($nombre_especialidad) {
+        // Primero actualizamos a 'undefined' la especialidad de los doctores que la tuviesen
+        $this -> conexion -> consulta(
+            "UPDATE doctores 
+            SET especialidad='undefined'
+            WHERE especialidad='{$nombre_especialidad}';"
+        );
+
+        $this -> conexion -> consulta(
+            "DELETE FROM especialidades WHERE nombre='{$nombre_especialidad}';"
+        );
+    }
+
     public function extraer_todos() {
         $especialidades = array();
         $especialidadesData = $this -> conexion -> extraer_todos();

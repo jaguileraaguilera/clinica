@@ -7,7 +7,9 @@
         </tr>
     <?php foreach($especialidades as $especialidad):?>
         <tr>
+        <?php if($especialidad->getNombre() != 'undefined'): ?>
             <td><?=$especialidad->getNombre()?></td>
+        <?php endif; ?>
         </tr>
     <?php endforeach;?>
     </table>

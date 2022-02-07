@@ -16,7 +16,7 @@
         <ul>
             <li><a href="<?=base_url."/Usuario/listar" ?>">Ver todos</a></li>
             <li><a href="<?=base_url."/Usuario/dar_alta" ?>">Registrar un nuevo usuario</a></li>
-            <li><a href="#">Modificar los datos de un usuario</a></li>
+            <li><a href="<?=base_url."/Usuario/ver_opciones_modificar" ?>">Modificar los datos de un usuario</a></li>
             <li><a href="#">Borrar</a></li>
         </ul>
     </nav>
@@ -25,8 +25,8 @@
     <nav>
         <ul>
             <li><a href="<?=base_url."/Cita/listar"?>">Ver todas</a></li>
-            <li><a href="#">Crear cita</a></li>
-            <li><a href="<?=base_url."/Cita/ver_opciones_borrado" ?>">Borrar</a></li>
+            <li><a href="#">Pedir cita</a></li>
+            <li><a href="<?=base_url."/Cita/ver_opciones_borrado" ?>">Anular una cita</a></li>
         </ul>
     </nav>
 
@@ -36,7 +36,7 @@
             <li><a href="<?=base_url."/Especialidad/listar"?>">Ver todas</a></li>
             <li><a href="#">Registrar una nueva especialidad</a></li>
             <li><a href="#">Modificar los datos de una especialidad</a></li>
-            <li><a href="#">Borrar</a></li>
+            <li><a href="<?=base_url."/Especialidad/ver_opciones_borrado" ?>">Borrar</a></li>
         </ul>
     </nav>
 </section>

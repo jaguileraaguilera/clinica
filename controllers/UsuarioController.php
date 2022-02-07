@@ -24,6 +24,11 @@ class UsuarioController {
     return $usuarios;
   }
 
+  public function modificar() {
+    var_dump($_POST);
+    echo "VAMOS POR AQUÍ, LUEGO SEGUIMOS";
+  }
+
   public function login() {
     session_start();
     if (!isset($_SESSION['correo']) || (!isset($_SESSION['password']))) {
@@ -56,5 +61,25 @@ class UsuarioController {
     $this -> service -> guardar($usuario);
 
     header("Location:".base_url."/Usuario/login");
+  }
+
+  public function ver_opciones_modificar() {
+    $usuarios = $this -> listar();
+    require_once 'views/volver_inicio.php';
+    require_once 'views/usuario/elegir_usuario_campos_modificar.php';
+  }
+
+  public function ver_formulario_modificar() {
+    $dni = $_POST['dni'];
+    $opciones = array('nombre', 'apellidos', 'correo', 'password');
+
+    foreach ($opciones as $opcion) {
+      if (isset($_POST[$opcion])) {
+        $opciones_procesar[] = $_POST[$opcion];
+      }
+    }
+
+    require_once 'views/volver_inicio.php';
+    require_once 'views/usuario/modificar.php';
   }
 }
