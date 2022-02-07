@@ -1,6 +1,7 @@
 <?php
 namespace controllers;
 use services\DoctorService;
+use controllers\EspecialidadController;
 
 class DoctorController {
   private DoctorService $service;
@@ -84,6 +85,12 @@ class DoctorController {
       }
     }
 
+    if (in_array('especialidad', $opciones_procesar)) {
+      $especialidad = new EspecialidadController(); 
+      $especialidades = $especialidad-> extraer_todas();
+    }
+
+    // var_dump($opciones_procesar);
     require_once 'views/volver_inicio.php';
     require_once 'views/doctor/modificar.php';
   }
