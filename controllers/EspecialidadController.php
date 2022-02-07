@@ -14,7 +14,7 @@ class EspecialidadController {
   }
 
   public function listar() {
-    $especialidades = $this -> service -> listar();
+    $especialidades = $this -> extraer_todas();
     require_once 'views/volver_inicio.php';
     require_once 'views/especialidades/listar.php';
     return $especialidades;

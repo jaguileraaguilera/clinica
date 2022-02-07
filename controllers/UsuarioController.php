@@ -1,6 +1,7 @@
 <?php
 namespace controllers;
 use services\UsuarioService;
+use controllers\CitaController;
 
 class UsuarioController {
   private UsuarioService $service;
@@ -83,6 +84,26 @@ class UsuarioController {
 
     $usuario = $this -> datos_usuario();
     require_once 'views/usuario/consultar_datos.php';
+  }
+
+  public function consultar_citas() {
+    if (session_status() != 2) { //Si la sesión no está iniciada
+      session_start();  
+    }
+
+    $usuario = $this -> datos_usuario();
+    $cita = new CitaController();
+    $todas_citas = $cita -> extraer_todas();
+    $citas = array();
+
+    foreach ($todas_citas as $cita) {
+      if ($cita->getPacienteDni() == $usuario->getDni()) {
+        $citas[] = $cita;
+      }
+    }
+    
+    require_once 'views/volver_inicio.php';
+    require_once 'views/citas/listar.php';
   }
 
   public function ver_opciones_borrado() {

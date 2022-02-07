@@ -9,8 +9,12 @@ class CitaController {
     $this -> service = new CitaService();
   }
 
+  public function extraer_todas() {
+    return $this -> service -> listar();
+  }
+
   public function listar() {
-    $citas = $this -> service -> listar();
+    $citas = $this -> extraer_todas();
     require_once 'views/volver_inicio.php';
     require_once 'views/citas/listar.php';
     return $citas;
