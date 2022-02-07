@@ -69,7 +69,10 @@ class UsuarioController {
   }
 
   public function consultar_datos() {
-    session_start();
+    if (session_status() != 2) { //Si la sesión no está iniciada
+      session_start();  
+    }
+
     $usuario = $this -> datos_usuario();
     require_once 'views/usuario/consultar_datos.php';
   }
@@ -89,8 +92,23 @@ class UsuarioController {
         $opciones_procesar[] = $_POST[$opcion];
       }
     }
-    
+
     require_once 'views/volver_inicio.php';
+    $this -> consultar_datos();
+  
     require_once 'views/usuario/modificar.php';
+  }
+
+  public function ver_formulario_elegir_datos_modificar() {
+    if (session_status() != 2) { //Si la sesión no está iniciada
+      session_start();  
+    }
+
+    $usuario = $this -> datos_usuario();
+    $dni = $usuario -> getDni();
+
+    require_once 'views/volver_inicio.php';
+    $this -> consultar_datos();
+    require_once 'views/usuario/elegir_datos_modificar.php';
   }
 }
