@@ -2,6 +2,7 @@
 namespace controllers;
 use services\CitaService;
 use controllers\UsuarioController;
+use controllers\DoctorController;
 
 class CitaController {
   private CitaService $service;
@@ -60,5 +61,16 @@ class CitaController {
     require_once 'views/volver_inicio.php';
     $citas = $this -> listar();
     require_once 'views/citas/borrar.php';
+  }
+
+  public function ver_formulario_solicitud() {
+    $usuario = new UsuarioController();
+    $doctor = new DoctorController();
+
+    $usuarios = $usuario -> extraer_todos();
+    $doctores = $doctor -> extraer_todos();
+    $doctor -> listar();
+    require_once 'views/volver_inicio.php';
+    require_once 'views/citas/pedir.php';
   }
 }

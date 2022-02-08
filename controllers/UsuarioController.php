@@ -23,8 +23,12 @@ class UsuarioController {
     return $this -> service -> datos_usuario($correo_usuario);
   }
 
+  public function extraer_todos() {
+    return $this -> service -> listar();
+  }
+
   public function listar() {
-    $usuarios = $this -> service -> listar();
+    $usuarios = $this -> extraer_todos();
     require_once 'views/volver_inicio.php';
     require_once 'views/usuario/listar.php';
     return $usuarios;

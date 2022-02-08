@@ -16,8 +16,12 @@ class DoctorController {
     $this -> service -> datos_doctor($dni_doctor);
   }
 
+  public function extraer_todos() {
+    return $this -> service -> listar();
+  }
+
   public function listar() {
-    $doctores = $this -> service -> listar();
+    $doctores = $this -> extraer_todos();
     require_once 'views/volver_inicio.php';
     require_once 'views/doctor/listar.php';
     return $doctores;
