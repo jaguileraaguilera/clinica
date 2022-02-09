@@ -15,6 +15,7 @@ class UsuarioController {
   }
 
   public function dar_alta() {
+    require_once 'views/volver_inicio.php';
     require_once 'views/usuario/alta_usuario.php';
   }
 
@@ -24,6 +25,7 @@ class UsuarioController {
   }
 
   public function extraer_todos() {
+    require_once 'views/volver_inicio.php';
     return $this -> service -> listar();
   }
 

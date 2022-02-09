@@ -13,6 +13,11 @@ class EspecialidadController {
     return $this -> service -> listar();
   }
 
+  public function dar_alta() {
+    require_once 'views/volver_inicio.php';
+    require_once 'views/especialidades/alta.php';
+  }
+
   public function listar() {
     $especialidades = $this -> extraer_todas();
     require_once 'views/volver_inicio.php';
@@ -27,9 +32,15 @@ class EspecialidadController {
     header("Location:".base_url."/Especialidad/ver_opciones_borrado");
   }
 
+  public function crear() {
+    echo 'LUEGO SEGUIMOS';
+  }
+
   public function ver_opciones_borrado() {
     require_once 'views/volver_inicio.php';
     $especialidades = $this -> extraer_todas();
     require_once 'views/especialidades/borrar.php';
   }
+
+
 }

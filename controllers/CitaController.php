@@ -35,6 +35,11 @@ class CitaController {
     header("Location:".base_url."/Usuario/login");
   }
 
+  public function pedir() {
+    echo 'LUEGO SEGUIMOS';
+    var_dump($_POST);
+  }
+
   public function consultar_citas() {
     $this -> comprobar_sesion();
 
@@ -82,7 +87,7 @@ class CitaController {
     else {
       $paciente = $usuario -> datos_usuario();
     }
-    
+
     require_once 'views/volver_inicio.php';
     require_once 'views/citas/pedir.php';
   }

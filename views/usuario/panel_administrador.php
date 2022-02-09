@@ -34,7 +34,7 @@
     <nav>
         <ul>
             <li><a href="<?=base_url."/Especialidad/listar"?>">Ver todas</a></li>
-            <li><a href="#">Registrar una nueva especialidad</a></li>
+            <li><a href="<?=base_url."/Especialidad/dar_alta"?>">Registrar una nueva especialidad</a></li>
             <li><a href="<?=base_url."/Especialidad/ver_opciones_borrado" ?>">Borrar</a></li>
         </ul>
     </nav>
