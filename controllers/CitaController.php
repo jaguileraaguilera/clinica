@@ -11,6 +11,12 @@ class CitaController {
     $this -> service = new CitaService();
   }
 
+  public function comprobar_sesion() {
+    if (session_status() != 2) { //Si la sesión no está iniciada
+      session_start();  
+    }
+  }
+
   public function extraer_todas() {
     return $this -> service -> listar();
   }
@@ -30,9 +36,7 @@ class CitaController {
   }
 
   public function consultar_citas() {
-    if (session_status() != 2) { //Si la sesión no está iniciada
-      session_start();  
-    }
+    $this -> comprobar_sesion();
 
     $usuario = new UsuarioController();
     $usuario = $usuario -> datos_usuario();
@@ -64,12 +68,21 @@ class CitaController {
   }
 
   public function ver_formulario_solicitud() {
+    $this -> comprobar_sesion();
     $usuario = new UsuarioController();
     $doctor = new DoctorController();
 
-    $usuarios = $usuario -> extraer_todos();
     $doctores = $doctor -> extraer_todos();
+    $es_administrador = $usuario -> datos_usuario() -> getEsAdmin();
     $doctor -> listar();
+
+    if ($es_administrador) {
+      $usuarios = $usuario -> extraer_todos();
+    }
+    else {
+      $paciente = $usuario -> datos_usuario();
+    }
+    
     require_once 'views/volver_inicio.php';
     require_once 'views/citas/pedir.php';
   }

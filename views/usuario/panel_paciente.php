@@ -4,7 +4,7 @@
     <h2>Citas</h2>
     <nav>
         <ul>
-            <li><a href="#">Pedir cita</a></li>
+            <li><a href="<?=base_url."/Cita/ver_formulario_solicitud" ?>">Pedir cita</a></li>
             <li><a href="<?=base_url."/Cita/consultar_citas" ?>">Consultar mis citas</a></li>
             <li><a href="<?=base_url."/Cita/anular_citas" ?>">Anular citas</a></li>
         </ul>
