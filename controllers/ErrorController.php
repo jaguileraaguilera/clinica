@@ -2,7 +2,7 @@
 namespace controllers;
 
 class ErrorController {
-    public function index() {
+    public static function index() {
         echo '<h1>La página que buscas no existe</h1>';
     }
 }

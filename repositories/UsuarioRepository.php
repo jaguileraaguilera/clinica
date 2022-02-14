@@ -19,7 +19,7 @@ class UsuarioRepository {
     public function inicia_sesion($correo, $password) {
         $this -> conexion -> consulta(
             "SELECT * FROM usuarios WHERE 
-            correo='{$correo}' and password='{$password}';");
+            correo='{$correo}' AND password='{$password}';");
         return $this -> extraer_registro();
     }
 

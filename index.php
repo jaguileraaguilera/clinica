@@ -11,7 +11,7 @@
 <?php if (!empty($_GET['controller'])): ?>
     <?php FrontController::main() ?>
 <?php else: ?>
-    <?php require_once('views/usuario/iniciar_sesion.php')?>
+    <?php require_once('views/usuario/iniciar_sesion.php') ?>
 <?php endif; ?>
 
 <?php require_once 'views/footer.php' ?>

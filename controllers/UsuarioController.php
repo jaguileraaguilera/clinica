@@ -2,6 +2,7 @@
 namespace controllers;
 use services\UsuarioService;
 use controllers\CitaController;
+use controllers\ErrorController;
 
 class UsuarioController {
   private UsuarioService $service;
@@ -46,10 +47,14 @@ class UsuarioController {
     if (!isset($_SESSION['correo']) || (!isset($_SESSION['password']))) {
       $_SESSION['correo'] = $_POST["correo"];
       $_SESSION['password'] = $_POST["password"];
-    } ;
-
+    };
     $usuario = $this -> service -> inicia_sesion($_SESSION['correo'], $_SESSION['password']);
-    require_once 'views/usuario/sesion_iniciada.php';
+    if ($usuario) {
+      require_once 'views/usuario/sesion_iniciada.php';
+    }
+    else {
+      header("Location:".base_url);
+    }
   }
 
   public function logout() {

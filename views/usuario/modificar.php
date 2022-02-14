@@ -8,8 +8,8 @@
             <label for="dni">DNI</label>
             <input type="text" name="dni" id="dni" value="<?=$dni?>" readonly>
 
-            <?php foreach($opciones_procesar as $campo):?>
-                <label for="<?=$campo?>">Nuevo/s <?=$campo?></label>
+            <?php foreach($opciones_procesar as $campo): ?>
+                <label for="<?=$campo?>">Nuevo/a/s <?=$campo?></label>
                 <input type="text" name="<?=$campo?>" id="<?=$campo?>">
             <?php endforeach; ?>
             

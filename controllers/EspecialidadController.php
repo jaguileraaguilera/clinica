@@ -41,6 +41,5 @@ class EspecialidadController {
     $especialidades = $this -> extraer_todas();
     require_once 'views/especialidades/borrar.php';
   }
-
-
+  
 }
